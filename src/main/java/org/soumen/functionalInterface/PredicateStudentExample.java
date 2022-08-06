@@ -5,7 +5,6 @@ import org.soumen.functionalInterface.data.StudentDataBase;
 
 import java.util.List;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class PredicateStudentExample {
@@ -16,7 +15,19 @@ public class PredicateStudentExample {
     static BiConsumer<String, String> studentBiConsumer = (studentGender, studentName) -> System.out.println("Gender is :- "+studentGender+" and Student name is :- "+studentName);
 
     public static void main(String[] args) {
+        filterStudentByGradeLevel();
+        System.out.println();
         printActivities();
+    }
+
+    public static void filterStudentByGradeLevel(){
+        System.out.println("Filtering student by grade level");
+        List<Student> studentList = StudentDataBase.getAllStudents();
+        studentList.forEach(student -> {
+            if(studentGradePredicate.test(student)){
+                System.out.println("Students with greater than 4 Grade levels are :- "+student.getName());
+            }
+        });
     }
 
     public static void printActivities(){
