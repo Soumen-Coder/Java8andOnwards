@@ -20,6 +20,8 @@ public class LambdaVariable {
 
         Consumer<Integer> consumer = x -> {
             //value++; //Modification of value is not allowed inside a lambda expression
+            //It treats the value primitive as final and doesn't let you modify it - "EFFECTIVELY FINAL"
+            //Prior to Java8, you have to declare any variable used inside anonymous class as final
             instanceVar++; // No rules for instance variables, you can modify them when required
             System.out.println("value+x+i = "+(value+x+i));
             System.out.println("Instance variable value = "+(--instanceVar));
@@ -28,5 +30,10 @@ public class LambdaVariable {
         //value=9; Since value is used inside lambda expression, you cannot modify it within the method scope as well
 
         consumer.accept(4);
+
+
+        //Advantages of Effectively final :
+        //Easy to perform concurrency operations
+        //Promotes functional programming and demotes imperative style of programming
     }
 }
