@@ -27,6 +27,14 @@ public class Student {
         this.gpa = studentBuilder.gpa;
     }
 
+    public Student() {
+
+    }
+
+    public Student(String str) {
+        this.name = str;
+    }
+
     public String getGender() {
         return gender;
     }
