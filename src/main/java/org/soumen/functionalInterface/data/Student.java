@@ -8,7 +8,9 @@ public class Student {
     private int gradeLevel;
     private double gpa;
     private String gender;
-    List<String> activities = new ArrayList<>();
+    List<String> activities;
+
+    private boolean isAbove18;
 
     public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
         this.name = name;
@@ -16,6 +18,14 @@ public class Student {
         this.gpa = gpa;
         this.gender = gender;
         this.activities = activities;
+    }
+
+    public Student(StudentBuilder studentBuilder) {
+        this.name = studentBuilder.name;
+        this.gender = studentBuilder.gender;
+        this.isAbove18 = studentBuilder.isAbove18;
+        this.gradeLevel = studentBuilder.gradeLevel;
+        this.gpa = studentBuilder.gpa;
     }
 
     public String getGender() {
@@ -58,7 +68,11 @@ public class Student {
         this.activities = activities;
     }
 
-    public void printActivities(){
+    public boolean isAbove18() {
+        return isAbove18;
+    }
+
+    public void printActivities() {
         System.out.println(activities);
     }
 
@@ -73,5 +87,29 @@ public class Student {
                 '}';
     }
 
+    static class StudentBuilder {
+        //Required parameters
+        private String name;
+        private String gender;
 
+        //optional parameters
+        private int gradeLevel;
+        private double gpa;
+
+        private boolean isAbove18;
+
+        public StudentBuilder(String name, String gender) {
+            this.name = name;
+            this.gender = gender;
+        }
+
+        public StudentBuilder setIsAbove18(boolean isAbove18) {
+            this.isAbove18 = isAbove18;
+            return this;
+        }
+
+        public Student build() {
+            return new Student(this);
+        }
+    }
 }

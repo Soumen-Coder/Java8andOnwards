@@ -2,8 +2,11 @@ package org.soumen.functionalInterface.data;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class StudentDataBase {
+
+    public static Supplier<Student> studentSupplier = () -> new Student.StudentBuilder("Soumen", "Male").setIsAbove18(true).build();
 
     /**
      * Total of 6 students in the database.
