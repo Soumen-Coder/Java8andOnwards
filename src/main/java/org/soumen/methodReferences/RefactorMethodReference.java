@@ -1,4 +1,4 @@
-package org.soumen.functionalInterface;
+package org.soumen.methodReferences;
 
 import org.soumen.functionalInterface.data.Student;
 import org.soumen.functionalInterface.data.StudentDataBase;
