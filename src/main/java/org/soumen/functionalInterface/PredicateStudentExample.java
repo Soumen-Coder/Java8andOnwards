@@ -9,8 +9,8 @@ import java.util.function.Predicate;
 
 public class PredicateStudentExample {
 
-    static Predicate<Student> studentGradePredicate = student -> student.getGradeLevel()>=3;
-    static Predicate<Student> studentGpaPredicate = student -> student.getGpa()>=3.9;
+    public static Predicate<Student> studentGradePredicate = student -> student.getGradeLevel()>=3;
+    public static Predicate<Student> studentGpaPredicate = student -> student.getGpa()>=3.9;
 
     static BiConsumer<String, String> studentBiConsumer = (studentGender, studentName) -> System.out.println("Gender is :- "+studentGender+" and Student name is :- "+studentName);
 
