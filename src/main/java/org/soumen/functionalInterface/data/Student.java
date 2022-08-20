@@ -7,16 +7,19 @@ public class Student {
     private int gradeLevel;
     private double gpa;
     private String gender;
-    List<String> activities;
+    private List<String> activities;
+
+    private int noOfBooks;
 
     private boolean isAbove18;
 
-    public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
+    public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities, int noOfBooks) {
         this.name = name;
         this.gradeLevel = gradeLevel;
         this.gpa = gpa;
         this.gender = gender;
         this.activities = activities;
+        this.noOfBooks = noOfBooks;
     }
 
     public Student(StudentBuilder studentBuilder) {
@@ -25,6 +28,7 @@ public class Student {
         this.isAbove18 = studentBuilder.isAbove18;
         this.gradeLevel = studentBuilder.gradeLevel;
         this.gpa = studentBuilder.gpa;
+        this.noOfBooks = studentBuilder.noOfBooks;
     }
 
     public Student() {
@@ -33,6 +37,14 @@ public class Student {
 
     public Student(String str) {
         this.name = str;
+    }
+
+    public int getNoOfBooks() {
+        return noOfBooks;
+    }
+
+    public void setNoOfBooks(int noOfBooks) {
+        this.noOfBooks = noOfBooks;
     }
 
     public String getGender() {
@@ -103,11 +115,19 @@ public class Student {
         private int gradeLevel;
         private double gpa;
 
+        private int noOfBooks;
+
         private boolean isAbove18;
 
         public StudentBuilder(String name, String gender) {
             this.name = name;
             this.gender = gender;
+        }
+
+        public StudentBuilder(String name, String gender, int noOfBooks) {
+            this.name = name;
+            this.gender = gender;
+            this.noOfBooks = noOfBooks;
         }
 
         public StudentBuilder setIsAbove18(boolean isAbove18) {
